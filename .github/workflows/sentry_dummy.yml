@@ -1,0 +1,30 @@
+name: Test For sentry_release
+
+on:
+  pull_request:
+    branches:
+      - master
+
+env:
+  REGISTRY_DOMAIN_STG: acrkeeperstg.azurecr.io
+  REGISTRY_DOMAIN_PROD: acrkeeperprod.azurecr.io
+  RESOURCE_GROUP: BOTCHAN-KEEPER
+  CONTAINER_APP_ENVIRONMENT: acae-keeper
+  KEY_VAULT: akv-keeper
+  STORAGE_NAME: keeperstoragemount
+  MOUNT_PATH: /home/node/app/pictures
+
+defaults:
+  run:
+    working-directory: "./environment/app"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
