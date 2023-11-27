@@ -5,15 +5,6 @@ on:
     branches:
       - master
 
-env:
-  REGISTRY_DOMAIN_STG: acrkeeperstg.azurecr.io
-  REGISTRY_DOMAIN_PROD: acrkeeperprod.azurecr.io
-  RESOURCE_GROUP: BOTCHAN-KEEPER
-  CONTAINER_APP_ENVIRONMENT: acae-keeper
-  KEY_VAULT: akv-keeper
-  STORAGE_NAME: keeperstoragemount
-  MOUNT_PATH: /home/node/app/pictures
-
 defaults:
   run:
     working-directory: "./environment/app"
